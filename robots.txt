@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://icantpay.github.io/sitemap.xml.gz
+Sitemap: https://genpguides.github.io/sitemap.xml.gz
