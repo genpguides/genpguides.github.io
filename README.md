@@ -18,7 +18,7 @@ This is **unoffical website** made from the wiki at [r/genp].
 
 I have only converted those files to website format and changed the markdown format in some places and changed some content.  
 
-You can suggest changes or corrections to the wiki [here](https://github.com/icantpay/icantpay.github.io).
+You can suggest changes or corrections to the wiki [here](https://github.com/icantpay/genpguides.github.io).
 
 ---
 *Uses Reddit Updated Date: **7-June-2023***

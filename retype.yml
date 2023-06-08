@@ -1,12 +1,12 @@
 input: .
 output: .retype
-url: https://icantpay.github.io # Website Address here
+url: https://genpguides.github.io # Website Address here
 favicon: static/logo.png
 branding:
   title: Adobe Apps Patching
   logo: static/logo.png
 edit:
-  repo: "https://github.com/icantpay/icantpay.github.io"
+  repo: "https://github.com/icantpay/genpguides.github.io"
 label: Wiki
 links:
   - text: Genp Official Discord
