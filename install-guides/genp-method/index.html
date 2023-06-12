@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.739544463169">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.739863191975">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -33,11 +33,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../static/logo.png" rel="icon" />
-    <link href="../../resources/css/retype.css?v=3.0.3.739544463169" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=3.0.3.739863191975" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.739544463169" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.739863191975" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.739544463169" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.739863191975" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -328,12 +328,60 @@
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<doc-anchor-target id="3-replace-try-with-install-buttons-using-the-modded-utilities">
+<doc-anchor-target id="3-using-powershell-commands-to-patch-creative-cloud-desktop">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#3-replace-try-with-install-buttons-using-the-modded-utilities">#</doc-anchor-trigger>
-        <span>3. Replace Try with Install buttons using the Modded Utilities.</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-using-powershell-commands-to-patch-creative-cloud-desktop">#</doc-anchor-trigger>
+        <span>3. Using Powershell Commands to Patch Creative Cloud Desktop</span>
     </h3>
 </doc-anchor-target>
+<p><em><strong>Thanks AbsentForeskin</strong></em></p>
+<p>Restoring the &quot;Install&quot; buttons in Creative Cloud Desktop—in place of &quot;Try&quot; buttons, which demand payment information—is possible with PowerShell commands on the current most up-to-date version of Adobe Creative Cloud (v.5.10.0.573).<br />
+Before you proceed, ensure this is the exact version specified next to &quot;Apps&quot; in the &quot;About Creative Cloud&quot; menu, as displayed below:
+<figure class="content-center">
+    <img src="https://media.discordapp.net/attachments/971079960255164477/1113354003393290290/IMG.png" alt="" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>Open an administrative PowerShell window to start and enter the following command to create a backup of your current Apps Panel:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">cp &quot;C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll&quot; &quot;C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll.bak&quot;</code></pre>
+</doc-codeblock></div>
+<p>After creating the backup, apply the Apps Panel patch by pasting the entirety of the following code block into PowerShell:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">$bytes  = [System.IO.File]::ReadAllBytes(&quot;C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll&quot;)
+$bytes[1092204] = 0xfe
+$bytes[1190497] = 0xfe
+$bytes[1953393] = 0xfe
+$bytes[2110587] = 0xfe
+$bytes[2112012] = 0xfe
+$bytes[2112527] = 0xfe
+$bytes[2113327] = 0xfe
+$bytes[2234425] = 0xc6
+$bytes[2234426] = 0x40
+$bytes[2234435] = 0xc6
+$bytes[2234436] = 0x40
+$bytes[2234445] = 0xc6
+$bytes[2234446] = 0x40
+$bytes[2391429] = 0xc6
+$bytes[2391430] = 0x40
+$bytes[2391439] = 0xc6
+$bytes[2391440] = 0x40
+$bytes[2391449] = 0xc6
+$bytes[2391450] = 0x40
+[System.IO.File]::WriteAllBytes(&quot;C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll&quot;, $bytes)</code></pre>
+</doc-codeblock></div>
+<p><strong>NOTE:</strong> If you receive an error stating that the file is being used by another process, use the command</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">Stop-Process -Name &quot;Adobe Desktop Service&quot; -force</code></pre>
+</doc-codeblock></div>
+<p>then re-enter the above code block.</p>
+<p>Reboot your machine after executing the code block to ensure Creative Cloud reinitializes fully. Upon startup, Creative Cloud will be patched and &quot;Install&quot; buttons will be present.</p>
+<p>If you&#x27;ve encountered an error and would like to restore from the backup, use the following command to do so:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">cp &quot;C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll.bak&quot; &quot;C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll&quot;</code></pre>
+</doc-codeblock></div>
+<doc-panel id="old-method-might-not-work" collapsed>
+    <template #title>Old Method (Might not Work)</template>
 <ul>
 <li><p>Go to the <strong>default</strong> folder for adobe in your file Explorer:<br />
 <code v-pre>C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel</code></p>
@@ -350,6 +398,7 @@
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
+</doc-panel>
 <doc-anchor-target id="4-use-ccstopper-to-block-ads-via-firewall-blocking-internet">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#4-use-ccstopper-to-block-ads-via-firewall-blocking-internet">#</doc-anchor-trigger>
@@ -486,16 +535,27 @@
         </div>
     </div>
 </div>
-<p><strong>Everything should be working now</strong></p>
 <p><figure class="content-center">
     <img src="../../static/genp-method/6-1.png" alt="" />
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<doc-anchor-target id="7-optional---block-each-installed-app-via-firewall">
+<doc-anchor-target id="7-block-adobe-genuine-service-url">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#7-optional---block-each-installed-app-via-firewall">#</doc-anchor-trigger>
-        <span>7. Optional - Block Each Installed app via Firewall</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#7-block-adobe-genuine-service-url">#</doc-anchor-trigger>
+        <span>7. Block Adobe Genuine Service URL</span>
+    </h3>
+</doc-anchor-target>
+<p>***Thanks S4M and AbsentForeskin
+Launch PowerShell as administrator and enter the following</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value &quot;`n0.0.0.0`tb5kbg2ggog.adobe.io&quot; -Force</code></pre>
+</doc-codeblock></div>
+<p><strong>Everything should be working now</strong></p>
+<doc-anchor-target id="8-optional---block-each-installed-app-via-firewall">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#8-optional---block-each-installed-app-via-firewall">#</doc-anchor-trigger>
+        <span>8. Optional - Block Each Installed app via Firewall</span>
     </h3>
 </doc-anchor-target>
 <p><em>(Case of issues like app will be disabled, day counter, unable to launch app due to some popup)</em></p>
@@ -507,10 +567,10 @@
 Find the proper path for the one you need.</p>
 </li>
 </ul>
-<doc-anchor-target id="8-optional---block-ags-via-firewall---similar-to-step-4">
+<doc-anchor-target id="9-optional---block-ags-via-firewall---similar-to-step-4">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#8-optional---block-ags-via-firewall---similar-to-step-4">#</doc-anchor-trigger>
-        <span>8. Optional - Block AGS via Firewall - <em>(similar to step 4)</em></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#9-optional---block-ags-via-firewall---similar-to-step-4">#</doc-anchor-trigger>
+        <span>9. Optional - Block AGS via Firewall - <em>(similar to step 4)</em></span>
     </h3>
 </doc-anchor-target>
 <ul>
