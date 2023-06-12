@@ -67,7 +67,57 @@ order: 10
 ![](../static/genp-method/2-3.png)
 ![](../static/genp-method/2-4.png)
 
-### 3. Replace Try with Install buttons using the Modded Utilities.  
+### 3. Using Powershell Commands to Patch Creative Cloud Desktop
+***Thanks AbsentForeskin***
+
+Restoring the "Install" buttons in Creative Cloud Desktop—in place of "Try" buttons, which demand payment information—is possible with PowerShell commands on the current most up-to-date version of Adobe Creative Cloud (v.5.10.0.573).  
+Before you proceed, ensure this is the exact version specified next to "Apps" in the "About Creative Cloud" menu, as displayed below:
+![](https://media.discordapp.net/attachments/971079960255164477/1113354003393290290/IMG.png)
+
+Open an administrative PowerShell window to start and enter the following command to create a backup of your current Apps Panel: 
+
+```
+cp "C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll" "C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll.bak"
+```
+
+After creating the backup, apply the Apps Panel patch by pasting the entirety of the following code block into PowerShell:  
+```
+$bytes  = [System.IO.File]::ReadAllBytes("C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll")
+$bytes[1092204] = 0xfe
+$bytes[1190497] = 0xfe
+$bytes[1953393] = 0xfe
+$bytes[2110587] = 0xfe
+$bytes[2112012] = 0xfe
+$bytes[2112527] = 0xfe
+$bytes[2113327] = 0xfe
+$bytes[2234425] = 0xc6
+$bytes[2234426] = 0x40
+$bytes[2234435] = 0xc6
+$bytes[2234436] = 0x40
+$bytes[2234445] = 0xc6
+$bytes[2234446] = 0x40
+$bytes[2391429] = 0xc6
+$bytes[2391430] = 0x40
+$bytes[2391439] = 0xc6
+$bytes[2391440] = 0x40
+$bytes[2391449] = 0xc6
+$bytes[2391450] = 0x40
+[System.IO.File]::WriteAllBytes("C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll", $bytes)
+```
+**NOTE:** If you receive an error stating that the file is being used by another process, use the command 
+```
+Stop-Process -Name "Adobe Desktop Service" -force
+``` 
+then re-enter the above code block.  
+
+Reboot your machine after executing the code block to ensure Creative Cloud reinitializes fully. Upon startup, Creative Cloud will be patched and "Install" buttons will be present.  
+
+If you've encountered an error and would like to restore from the backup, use the following command to do so:  
+```
+cp "C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll.bak" "C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll"
+```
+
+==- Old Method (Might not Work)
    - Go to the **default** folder for adobe in your file Explorer:  
    `C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel`  
 
@@ -78,6 +128,7 @@ order: 10
    - Go to `Genp 3 - Modded > Utilities > restore install buttons [beta]`, there will be another 2 "AppsPanel" files. You will copy these into the default AppsPanel folder (NOT THE BACKUP ONE).
 
 ![](../static/genp-method/3-1.png)
+===
 
 ### 4. Use CCStopper to block ADS via Firewall (blocking internet)
    - **Run CCstopper as admin.** - You should be shown a menu with the following options which you must hit using the keyboard.  
@@ -164,11 +215,17 @@ The ADS rule is what causes Creative Cloud to take longer to load, not load at a
 OPEN THE APPS THROUGH THE .EXE and NOT FROM CC.
 !!!
 
-**Everything should be working now**
-
 ![](../static/genp-method/6-1.png)
 
-### 7. Optional - Block Each Installed app via Firewall  
+### 7. Block Adobe Genuine Service URL
+***Thanks S4M and AbsentForeskin
+Launch PowerShell as administrator and enter the following
+```
+Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`tb5kbg2ggog.adobe.io" -Force
+```
+**Everything should be working now**
+
+### 8. Optional - Block Each Installed app via Firewall  
    *(Case of issues like app will be disabled, day counter, unable to launch app due to some popup)*
    - Go to `Windows Firewall > Advanced Settings`  
 
@@ -176,7 +233,7 @@ OPEN THE APPS THROUGH THE .EXE and NOT FROM CC.
    **Typical path example would be:** `C:\Program Files\Adobe\Adobe Photoshop 2022\Photoshop.exe`  
    Find the proper path for the one you need.  
 
-### 8. Optional - Block AGS via Firewall - *(similar to step 4)*
+### 9. Optional - Block AGS via Firewall - *(similar to step 4)*
    -  Create both **Inbound** and **Outbound** rules on **Adobe Genuine Service**  
    Path of AGS - `C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AdobeGenuineClient\AGSService.exe`
 
