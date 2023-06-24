@@ -22,7 +22,7 @@ You can suggest changes or corrections to the wiki [here](https://github.com/ica
 
 # Changelog
 
-24 June 2023: Add Warning of AV blocking Monkrus
+24 June 2023: Add Warning of AV blocking Monkrus and minor formatting fix
 12 June 2023: Move Changelog to README, Added Block Adobe Genuine Service URL step in genp method, update CC patch guide.  
 07 June 2023: Update links to acropolis v1.3 to v1.6  
 01 June 2023: Fix a formatting issue in genp method step 4  

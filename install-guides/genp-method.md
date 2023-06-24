@@ -218,7 +218,7 @@ OPEN THE APPS THROUGH THE .EXE and NOT FROM CC.
 ![](../static/genp-method/6-1.png)
 
 ### 7. Block Adobe Genuine Service URL
-***Thanks S4M and AbsentForeskin
+***Thanks S4M and AbsentForeskin***  
 Launch PowerShell as administrator and enter the following
 ```
 Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`tb5kbg2ggog.adobe.io" -Force
