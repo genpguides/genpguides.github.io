@@ -22,6 +22,7 @@ You can suggest changes or corrections to the wiki [here](https://github.com/ica
 
 # Changelog
 
+29 June 2023: Update the powershell commands in genp method thanks to AbsentForeskin
 24 June 2023: Add Warning of AV blocking Monkrus and minor formatting fix
 12 June 2023: Move Changelog to README, Added Block Adobe Genuine Service URL step in genp method, update CC patch guide.  
 07 June 2023: Update links to acropolis v1.3 to v1.6  
@@ -29,4 +30,4 @@ You can suggest changes or corrections to the wiki [here](https://github.com/ica
 01 June 2023: Add generative fill instructions  
 
 ---
-*Uses Reddit Updated Date: **24-June-2023***
+*Reddit Last Updated Date: **24-June-2023***
