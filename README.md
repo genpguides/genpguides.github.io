@@ -22,6 +22,7 @@ You can suggest changes or corrections to the wiki [here](https://github.com/ica
 
 # Changelog
 
+03 July 2023: Update Photoshop link thanks to s4m
 29 June 2023: Update the powershell commands in genp method thanks to AbsentForeskin
 24 June 2023: Add Warning of AV blocking Monkrus and minor formatting fix
 12 June 2023: Move Changelog to README, Added Block Adobe Genuine Service URL step in genp method, update CC patch guide.  

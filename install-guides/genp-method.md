@@ -216,6 +216,7 @@ OPEN THE APPS THROUGH THE .EXE and NOT FROM CC.
 Launch PowerShell as administrator and enter the following
 ```
 Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`tb5kbg2ggog.adobe.io" -Force
+Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`guzg78logz.adobe.io" -Force
 ```
 **Everything should be working now**
 
