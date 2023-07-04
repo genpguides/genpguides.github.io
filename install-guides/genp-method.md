@@ -70,9 +70,9 @@ order: 10
 ### 3. Using Powershell Commands to Patch Creative Cloud Desktop
 ***Thanks AbsentForeskin***
 
-Restoring the "Install" buttons in Creative Cloud Desktop—in place of "Try" buttons, which demand payment information—is possible with PowerShell commands on the current most up-to-date version of Adobe Creative Cloud (v.5.11.0.521).  
+Restoring the "Install" buttons in Creative Cloud Desktop—in place of "Try" buttons, which demand payment information—is possible with PowerShell commands on the current most up-to-date version of Adobe Creative Cloud (v.5.11.0.522.1).  
 Before you proceed, ensure this is the exact version specified next to "Apps" in the "About Creative Cloud" menu, as displayed below:
-![](https://media.discordapp.net/attachments/971079960255164477/1122662145717440592/511-0-521.png)
+![](https://media.discordapp.net/attachments/971079960255164477/1125670885337079808/IMG-1.png)
 
 Open an administrative PowerShell window to start and enter the following command to create a backup of your current Apps Panel: 
 
@@ -85,17 +85,17 @@ After creating the backup, apply the Apps Panel patch by pasting the entirety of
 $bytes  = [System.IO.File]::ReadAllBytes("C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll")
 $bytes[1117100] = 0xfe
 $bytes[1216993] = 0xfe
-$bytes[1988065] = 0xfe
-$bytes[2149419] = 0xfe
-$bytes[2150844] = 0xfe
-$bytes[2151359] = 0xfe
-$bytes[2152159] = 0xfe
-$bytes[2278697] = 0xc6
-$bytes[2278698] = 0x40
-$bytes[2278707] = 0xc6
-$bytes[2278708] = 0x40
-$bytes[2278717] = 0xc6
-$bytes[2278718] = 0x40
+$bytes[1987809] = 0xfe
+$bytes[2149147] = 0xfe
+$bytes[2150572] = 0xfe
+$bytes[2151087] = 0xfe
+$bytes[2151887] = 0xfe
+$bytes[2278457] = 0xc6
+$bytes[2278458] = 0x40
+$bytes[2278467] = 0xc6
+$bytes[2278468] = 0x40
+$bytes[2278477] = 0xc6
+$bytes[2278478] = 0x40
 [System.IO.File]::WriteAllBytes("C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll", $bytes)
 ```
 **NOTE:** If you receive an error stating that the file is being used by another process, use the command 
