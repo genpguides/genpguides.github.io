@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.741699731569">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.741768895606">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -33,11 +33,11 @@
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
     <link href="../../static/logo.png" rel="icon" />
-    <link href="../../resources/css/retype.css?v=3.0.3.741699731569" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=3.0.3.741768895606" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.741699731569" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.741768895606" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.741699731569" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.741768895606" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -335,10 +335,10 @@
     </h3>
 </doc-anchor-target>
 <p><em><strong>Thanks AbsentForeskin</strong></em></p>
-<p>Restoring the &quot;Install&quot; buttons in Creative Cloud Desktop—in place of &quot;Try&quot; buttons, which demand payment information—is possible with PowerShell commands on the current most up-to-date version of Adobe Creative Cloud (v.5.11.0.521).<br />
+<p>Restoring the &quot;Install&quot; buttons in Creative Cloud Desktop—in place of &quot;Try&quot; buttons, which demand payment information—is possible with PowerShell commands on the current most up-to-date version of Adobe Creative Cloud (v.5.11.0.522.1).<br />
 Before you proceed, ensure this is the exact version specified next to &quot;Apps&quot; in the &quot;About Creative Cloud&quot; menu, as displayed below:
 <figure class="content-center">
-    <img src="https://media.discordapp.net/attachments/971079960255164477/1122662145717440592/511-0-521.png" alt="" />
+    <img src="https://media.discordapp.net/attachments/971079960255164477/1125670885337079808/IMG-1.png" alt="" />
     <figcaption class="caption"></figcaption>
 </figure>
 </p>
@@ -351,17 +351,17 @@ Before you proceed, ensure this is the exact version specified next to &quot;App
 <pre class="language-none"><code v-pre class="language-none">$bytes  = [System.IO.File]::ReadAllBytes(&quot;C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll&quot;)
 $bytes[1117100] = 0xfe
 $bytes[1216993] = 0xfe
-$bytes[1988065] = 0xfe
-$bytes[2149419] = 0xfe
-$bytes[2150844] = 0xfe
-$bytes[2151359] = 0xfe
-$bytes[2152159] = 0xfe
-$bytes[2278697] = 0xc6
-$bytes[2278698] = 0x40
-$bytes[2278707] = 0xc6
-$bytes[2278708] = 0x40
-$bytes[2278717] = 0xc6
-$bytes[2278718] = 0x40
+$bytes[1987809] = 0xfe
+$bytes[2149147] = 0xfe
+$bytes[2150572] = 0xfe
+$bytes[2151087] = 0xfe
+$bytes[2151887] = 0xfe
+$bytes[2278457] = 0xc6
+$bytes[2278458] = 0x40
+$bytes[2278467] = 0xc6
+$bytes[2278468] = 0x40
+$bytes[2278477] = 0xc6
+$bytes[2278478] = 0x40
 [System.IO.File]::WriteAllBytes(&quot;C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll&quot;, $bytes)</code></pre>
 </doc-codeblock></div>
 <p><strong>NOTE:</strong> If you receive an error stating that the file is being used by another process, use the command</p>
