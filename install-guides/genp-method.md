@@ -68,20 +68,29 @@ order: 10
 ![](../static/genp-method/2-4.png)
 
 ### 3. Using Powershell Commands to Patch Creative Cloud Desktop
-***Thanks AbsentForeskin***
+***Thanks AbsentForeskin***  
+*Adobe Creative Cloud `v.5.11.0.522.1` (June 2023 - latest)*  
+*Last updated July 5, 2023*  
 
-Restoring the "Install" buttons in Creative Cloud Desktop—in place of "Try" buttons, which demand payment information—is possible with PowerShell commands on the current most up-to-date version of Adobe Creative Cloud (v.5.11.0.522.1).  
-Before you proceed, ensure this is the exact version specified next to "Apps" in the "About Creative Cloud" menu, as displayed below:
-![](https://media.discordapp.net/attachments/971079960255164477/1125670885337079808/IMG-1.png)
+!!!warning Warnings
+**IMPORTANT:** Do not apply this patch if you have already made any changes to `AppsPanelBL.dll` or `AppsPanelIL.dll`.
+**NOTE:** Additional firewall rules or other network changes are not necessary or recommended while using this patch.
+!!!
+#### Overview
+Restoring the "Install" buttons in Creative Cloud Desktop—in place of "Try" buttons, which demand payment information—is possible with PowerShell commands on the current latest release of <:ACC:1123114215285211198> Adobe Creative Cloud (`v.5.11.0.522.1`). Before you proceed, ensure this is the exact version specified in the "About Creative Cloud" menu, as displayed below—
 
-Open an administrative PowerShell window to start and enter the following command to create a backup of your current Apps Panel: 
+![](https://media.discordapp.net/attachments/971079960255164477/1125990232450408498/ACC.png)
+(If you can't see the image above, it's possible that the source of this part might have updated, visit [discord](https://discord.com/channels/808943947660394517/971079960255164477) to see the updated part for this section).
 
-```
+#### Usage & Steps
+To begin, launch PowerShell as administrator and enter the following command to create a backup of your current Apps Panel—
+
+```powershell
 cp "C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll" "C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll.bak"
 ```
+After creating a backup with the above command, apply the Apps Panel patch by pasting the entirety of the following code block into PowerShell—
 
-After creating the backup, apply the Apps Panel patch by pasting the entirety of the following code block into PowerShell:  
-```
+```powershell
 $bytes  = [System.IO.File]::ReadAllBytes("C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll")
 $bytes[1117100] = 0xfe
 $bytes[1216993] = 0xfe
@@ -98,18 +107,35 @@ $bytes[2278477] = 0xc6
 $bytes[2278478] = 0x40
 [System.IO.File]::WriteAllBytes("C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll", $bytes)
 ```
-**NOTE:** If you receive an error stating that the file is being used by another process, use the command 
-```
+At this point, the patch is complete. The PowerShell window should resemble the following—
+
+![](https://media.discordapp.net/attachments/971079960255164477/1125990338176229386/PS.png)
+
+If the console prints no errors, restart your machine. Upon startup, Creative Cloud will be ready for use.
+
+#### Error Checking
+If you receive an error stating that the file is being used by another process, then Creative Cloud is still partially running. Enter the following command to exit the running service—  
+
+```powershell
 Stop-Process -Name "Adobe Desktop Service" -force
-``` 
-then re-enter the above code block.  
-
-Reboot your machine after executing the code block to ensure Creative Cloud reinitializes fully. Upon startup, Creative Cloud will be patched and "Install" buttons will be present.  
-
-If you've encountered an error and would like to restore from the backup, use the following command to do so:  
 ```
+Following that command, re-enter the same code block again—
+
+![](https://media.discordapp.net/attachments/971079960255164477/1125990412281184306/PS_ER.png)
+
+Restart your machine after entering the code block. Upon startup, Creative Cloud will be patched and ready for use.
+
+#### Backup & Restore
+To restore from the previously made backup, use the following command—
+
+```powershell
 cp "C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll.bak" "C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll"
 ```
+
+If no errors are printed to the console, restart your machine. Upon startup, Creative Cloud will be returned to normal functionality—
+
+![](https://media.discordapp.net/attachments/971079960255164477/1125990475623583765/PS_RES.png)
+
 
 ==- Old Method (Might not Work)
    - Go to the **default** folder for adobe in your file Explorer:  
@@ -214,7 +240,7 @@ OPEN THE APPS THROUGH THE .EXE and NOT FROM CC.
 ### 7. Block Adobe Genuine Service URL
 ***Thanks S4M and AbsentForeskin***  
 Launch PowerShell as administrator and enter the following
-```
+```powershell
 Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`tb5kbg2ggog.adobe.io" -Force
 Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`guzg78logz.adobe.io" -Force
 ```
