@@ -22,7 +22,8 @@ You can suggest changes or corrections to the wiki [here](https://github.com/ica
 
 # Changelog
 
-13 July 2034: Update the CC Patching guide for latest cc version thanks to AbsentForeskin
+04 Aug 2023 : Update adobe url 
+13 July 2023: Update the CC Patching guide for latest cc version thanks to AbsentForeskin
 04 July 2023: Update CC Patching guide for latest cc version Thanks to AbsentForeskin
 03 July 2023: Update Photoshop link thanks to s4m
 29 June 2023: Update the powershell commands in genp method thanks to AbsentForeskin
@@ -33,4 +34,4 @@ You can suggest changes or corrections to the wiki [here](https://github.com/ica
 01 June 2023: Add generative fill instructions  
 
 ---
-*Reddit Last Updated Date: **24-June-2023***
+*Reddit Last Updated Date: **02-Aug-2023***
