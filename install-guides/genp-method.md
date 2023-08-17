@@ -238,12 +238,17 @@ OPEN THE APPS THROUGH THE .EXE and NOT FROM CC.
 ![](../static/genp-method/6-1.png)
 
 ### 7. Block Adobe Genuine Service URL
-***Thanks S4M and AbsentForeskin***  
-Launch PowerShell as administrator and enter the following
-```powershell
-Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`tic.adobe.io" -Force
-Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`t1hzopx6nz7.adobe.io" -Force
+***Thanks Various Discord Members*** 
+Launch notepad as administrator and open the file `C:\Windows\System32\drivers\etc\hosts` in notepad.
+
+Add the following lines at the bottom of the file. 
+
 ```
+0.0.0.0 ij0gdyrfka.adobe.io
+0.0.0.0 p13n.adobe.io
+0.0.0.0 1hzopx6nz7.adobe.io
+```
+
 **Everything should be working now**
 
 ### 8. Optional - Block Each Installed app via Firewall  

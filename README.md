@@ -22,7 +22,8 @@ You can suggest changes or corrections to the wiki [here](https://github.com/ica
 
 # Changelog
 
-04 Aug 2023 : Update adobe url 
+17 Aug 2023 : Update Adobe Genuine Service URL
+04 Aug 2023 : Update Adobe Genuine Service URL 
 13 July 2023: Update the CC Patching guide for latest cc version thanks to AbsentForeskin
 04 July 2023: Update CC Patching guide for latest cc version Thanks to AbsentForeskin
 03 July 2023: Update Photoshop link thanks to s4m
