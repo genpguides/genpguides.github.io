@@ -7,7 +7,7 @@ order: -10
 [Genp 3.0 modded]: https://www.mediafire.com/file/ipp9gj15xzty1uw/GenP_3.0_Release.zip/file
 [CCStopper Download]: https://github.com/eaaasun/CCStopper/releases
 [Unlicensed App Popup fix]: https://www.reddit.com/r/GenP/comments/ue47y6/possible_solution_to_unlicensed_app_popup_no/
-[Compatibility List]: https://www.reddit.com/r/GenP/comments/yao439/update_compatibility_list_2023_creative_suite/
+[Compatibility List]: https://www.reddit.com/r/GenP/comments/164ew74/compatibility_list_2024_creative_suite/
 
 <!-- Main Content Start -->
 # GenP Patching Method

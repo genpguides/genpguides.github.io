@@ -3,7 +3,7 @@ order: 10
 ---
 
 <!-- Links  -->
-[5]: https://www.reddit.com/r/GenP/comments/yao439/update_compatibility_list_2023_creative_suite/
+[5]: https://www.reddit.com/r/GenP/comments/164ew74/compatibility_list_2024_creative_suite/
 
 [8]: https://www.reddit.com/r/GenP/comments/mt9m4f/adobe_home_screen_fix_402
 
@@ -32,7 +32,7 @@ order: 10
 [31]: https://w14.monkrus.ws/search?q=Adobe+Media+Encoder&max-results=20&by-date=true
 [32]: https://www.mediafire.com/file/jr0jqeynr4h21f9/Adobe_GenP_3.0.zip/file
 [33]: https://www.mediafire.com/file/ipp9gj15xzty1uw/GenP_3.0_Release.zip/file
-[34]: https://www.mediafire.com/file/re7hbvq8bbxmep1/Acropolis_V1.6.zip/file
+[34]: https://www.mediafire.com/file/5ioc2xixk2c9vp2/Acropolis_V1.9.zip/file
 
 <!-- Links End Main content Start -->
 
@@ -208,11 +208,6 @@ The ADS rule is what causes Creative Cloud to take longer to load, not load at a
 ===
 
 ### 5. Install Apps you want (Trial and Error)
-=== For generative Fill
-- Account must be set as higher than 18 years old
-- You need to install photoshop beta for generative fill.
-- To install photoshop beta, in CC go on `Apps > Categories > Beta Apps > Photoshop Beta`
-===
 
    - If the buttons didn't get replaced with install, click on Try nonetheless and see if it starts downloading.  
    
@@ -238,15 +233,18 @@ OPEN THE APPS THROUGH THE .EXE and NOT FROM CC.
 ![](../static/genp-method/6-1.png)
 
 ### 7. Block Adobe Genuine Service URL
-***Thanks Various Discord Members*** 
-Launch notepad as administrator and open the file `C:\Windows\System32\drivers\etc\hosts` in notepad.
-
-Add the following lines at the bottom of the file. 
-
+***Thanks AbsentForeskin***  
+Use the following two commands in PowerShell (admin) if your apps are warning you of unlicensed or non-genuine usage.
 ```
-0.0.0.0 ij0gdyrfka.adobe.io
-0.0.0.0 p13n.adobe.io
-0.0.0.0 1hzopx6nz7.adobe.io
+Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`t23ynjitwt5.adobe.io" -Force
+```
+```
+Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`tic.adobe.io" -Force
+```
+If you prefer to do this manually, you can add the following two lines to the system hosts file (located in `C:\Windows\System32\drivers\etc`) using a text editor of your choice—
+```
+0.0.0.0 23ynjitwt5.adobe.io
+0.0.0.0 ic.adobe.io
 ```
 
 **Everything should be working now**

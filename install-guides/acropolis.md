@@ -3,7 +3,7 @@ order: -30
 ---
 
 <!-- Links -->
-[Download: Acropolis]: https://www.mediafire.com/file/re7hbvq8bbxmep1/Acropolis_V1.6.zip/file
+[Download: Acropolis]: https://www.mediafire.com/file/5ioc2xixk2c9vp2/Acropolis_V1.9.zip/file
 
 <!-- Main Content -->
 # Acropolis: Adobe Acrobat Pro DC (Standalone / CC-less)
@@ -14,7 +14,7 @@ Thanks u/Verix- , from GenP Discord.
 - [Download: Acropolis]
 
 !!!info
-- Supports Acrobat Pro | Version 23.003.20201 | 64-bit
+- Supports Acrobat Pro | Version 23.006.20320 | 64-bit
 - This method may be outdated after the next Acrobat update, so it is recommended to visit the Discord server for the latest information.
 - It was created and tested as a standalone version, but should also work with Creative Cloud/GenP/Monkrus installed.
 - Before starting, make sure there is no Adobe Acrobat Pro DC installed on your computer.

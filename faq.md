@@ -25,7 +25,7 @@ icon: question
 Downgrading adobe apps is not currently possible.
 
 ## What are latest versions of programs I can patch?
-Check the [Update Compatibility List](https://www.reddit.com/r/GenP/comments/yao439/update_compatibility_list_2023_creative_suite/)
+Check the [Update Compatibility List](https://www.reddit.com/r/GenP/comments/164ew74/compatibility_list_2024_creative_suite/)
 
 ## What is GenP?
 A script patcher that changes some things inside the directory of the apps programs so that it extends trial periods for undefinite time / download it without attachments.

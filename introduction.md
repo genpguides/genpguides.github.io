@@ -2,6 +2,10 @@
 order: 10
 icon: note
 ---
+
+!!!info Linux, AtlasOS or any other OS will not be supported / cause conflict due to missing services.
+!!!
+
 # Which Method to Choose? 
 
 !!!warning Don't mix multiple methods

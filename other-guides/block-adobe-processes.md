@@ -6,13 +6,12 @@ order: -3
 
 ## Photoshop
 
-All you have to do is rename these 5 exe-files.
+All you have to do is rename these 4 exe-files.
 
 1. `C:\Program Files (x86)\Adobe\Adobe Sync\CoreSync\CoreSync.exe`
 2. `C:\Program Files\Adobe\Adobe Creative Cloud Experience\CCXProcess.exe`
 3. `C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\ADS\Adobe Desktop Service.exe`
 4. `C:\Program Files\Common Files\Adobe\Creative Cloud Libraries\CCLibrary.exe`
-5. `C:\Program Files\Adobe\Adobe Photoshop 2021\LogTransport2.exe`
 
 Just add another letter after the ".exe".  
 For example: "CoreSync.exe"-->"CoreSync.exeW"
@@ -22,7 +21,7 @@ For example: "CoreSync.exe"-->"CoreSync.exeW"
 
 All you have to do is rename these exe-file.
 
-1. `C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\AdobeCollabSync.exe`
+1. `C:\Program Files\Adobe\Acrobat DC\Acrobat\AdobeCollabSync.exe`
 
 Just add another letter after the ".exe".  
 For example: "AdobeCollabSync.exe"-->"AdobeCollabSync.exeV"  

@@ -4,7 +4,7 @@ icon: download
 ---
 
 <!-- Links  -->
-[5]: https://www.reddit.com/r/GenP/comments/yao439/update_compatibility_list_2023_creative_suite/
+[5]: https://www.reddit.com/r/GenP/comments/164ew74/compatibility_list_2024_creative_suite/
 
 [8]: https://www.reddit.com/r/GenP/comments/mt9m4f/adobe_home_screen_fix_402
 
@@ -33,7 +33,7 @@ icon: download
 [31]: https://w14.monkrus.ws/search?q=Adobe+Media+Encoder&max-results=20&by-date=true
 [32]: https://www.mediafire.com/file/jr0jqeynr4h21f9/Adobe_GenP_3.0.zip/file
 [33]: https://www.mediafire.com/file/ipp9gj15xzty1uw/GenP_3.0_Release.zip/file
-[34]: https://www.mediafire.com/file/re7hbvq8bbxmep1/Acropolis_V1.6.zip/file
+[34]: https://www.mediafire.com/file/5ioc2xixk2c9vp2/Acropolis_V1.9.zip/file
 
 <!-- Links End Main content Start -->
 
