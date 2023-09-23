@@ -3,7 +3,7 @@ output: .retype
 url: https://genpguides.github.io # Website Address here
 favicon: static/logo.png
 branding:
-  title: Adobe Apps Patching
+  title: Genp Guides
   logo: static/logo.png
 edit:
   repo: "https://github.com/icantpay/genpguides.github.io"
