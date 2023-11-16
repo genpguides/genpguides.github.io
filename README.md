@@ -22,18 +22,19 @@ You can suggest changes or corrections to the wiki [here](https://github.com/ica
 
 # Changelog
 
+16 Nov 2023 : Update text to match reddit
 23 Sep 2023 : Update the Compatibility Suite Guide, update acropolis version, update adobe block urls, remove one adobe process block.
 17 Aug 2023 : Update Adobe Genuine Service URL  
 04 Aug 2023 : Update Adobe Genuine Service URL  
-13 July 2023: Update the CC Patching guide for latest cc version thanks to AbsentForeskin  
-04 July 2023: Update CC Patching guide for latest cc version Thanks to AbsentForeskin  
-03 July 2023: Update Photoshop link thanks to s4m  
-29 June 2023: Update the powershell commands in genp method thanks to AbsentForeskin  
-24 June 2023: Add Warning of AV blocking Monkrus and minor formatting fix  
-12 June 2023: Move Changelog to README, Added Block Adobe Genuine Service URL step in genp method, update CC patch guide.  
-07 June 2023: Update links to acropolis v1.3 to v1.6  
-01 June 2023: Fix a formatting issue in genp method step 4  
-01 June 2023: Add generative fill instructions  
+13 Jul 2023: Update the CC Patching guide for latest cc version thanks to AbsentForeskin  
+04 Jul 2023: Update CC Patching guide for latest cc version Thanks to AbsentForeskin  
+03 Jul 2023: Update Photoshop link thanks to s4m  
+29 Jun 2023: Update the powershell commands in genp method thanks to AbsentForeskin  
+24 Jun 2023: Add Warning of AV blocking Monkrus and minor formatting fix  
+12 Jun 2023: Move Changelog to README, Added Block Adobe Genuine Service URL step in genp method, update CC patch guide.  
+07 Jun 2023: Update links to acropolis v1.3 to v1.6  
+01 Jun 2023: Fix a formatting issue in genp method step 4  
+01 Jun 2023: Add generative fill instructions  
 
 ---
-*Reddit Last Updated Date: **02-Aug-2023***
+*Reddit Last Updated Date: **16-Nov-2023***

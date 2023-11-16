@@ -32,7 +32,10 @@ order: 10
 [31]: https://w14.monkrus.ws/search?q=Adobe+Media+Encoder&max-results=20&by-date=true
 [32]: https://www.mediafire.com/file/jr0jqeynr4h21f9/Adobe_GenP_3.0.zip/file
 [33]: https://www.mediafire.com/file/ipp9gj15xzty1uw/GenP_3.0_Release.zip/file
-[34]: https://www.mediafire.com/file/5ioc2xixk2c9vp2/Acropolis_V1.9.zip/file
+[34]: https://www.mediafire.com/file/ppdtzb3elfzw987/Acropolis_V1.10.zip/file
+[35]: https://w14.monkrus.ws/search?q=firefly&amp;max-results=20&amp;by-date=true
+[36]: https://www.reddit.com/r/GenP/comments/ue47y6/possible_solution_to_unlicensed_app_popup_no/
+
 
 <!-- Links End Main content Start -->
 
@@ -40,26 +43,27 @@ order: 10
 
 > **~~[Video Tutorial: Updated Guide #2 - CC+GenP](https://odysee.com/@genp/guide2)~~ - Video outdated due to new versions of Genp, CCstopper and others**
 
+[CURRENT UPDATED Video Tutorial October 2023:](https://youtu.be/EdO29DuUBHo) - Thanks to the user upload for the straightforward video, hope it helps others
+
 ## Downloads Needed
 
 - 🔗 [Creative Cloud (CC)][11]
 - 🔗 [GenP 3.0 - Modded][33]
-- 🔗 [CCStopper][9]
-
-!!!warning
-[If you are having "Unlicensed popups | App will be disabled | Not loading or looping CC"](https://www.reddit.com/r/GenP/comments/ue47y6/possible_solution_to_unlicensed_app_popup_no/)
-!!!
 
 ## Instructions
 
-### 1. Download Genp 3 - Modded, CCStopper, and extract ALL contents from zip  
+### 1. Download Genp 3 - Modded, and extract ALL contents from zip  
   **Antivirus may sometimes delete or move files into quarantine.**
   **You can either whitelist as safe or disable antivirus while extracting. This will fix the issue of **.exe** not showing in the folder after extracted.**
 
 ### 2. Download & Install Creative Cloud  
    - Create a free account or use one you already have, preferably without any ongoing subscription *(avoid problems)*
    - During setup, *if possible* do **NOT install AGS** (Adobe Genuine Service)
-   - **Disable Auto-Update** on it's settings *if possible*.
+   - Once installed go to `Menu > File > Preferences` and **disable the following:**
+     - Launch at login
+     - Sync files in the background after quitting
+     - Automatically keep it updated
+     
    - Once that is done go `Menu > File > Exit Creative Cloud`
 
 ![](../static/genp-method/2-1.png)
@@ -67,7 +71,7 @@ order: 10
 ![](../static/genp-method/2-3.png)
 ![](../static/genp-method/2-4.png)
 
-### 3. Using Powershell Commands to Patch Creative Cloud Desktop
+### 3. Replace Try with Install buttons using Windows Powershell as ADMIN
 ***Thanks AbsentForeskin***  
 *Adobe Creative Cloud `v.5.11.0.522.1` (June 2023 - latest)*  
 *Last updated July 5, 2023*  
@@ -83,33 +87,35 @@ Restoring the "Install" buttons in Creative Cloud Desktop—in place of "Try" bu
 (If you can't see the image above, it's possible that the source of this part might have updated, visit [discord](https://discord.com/channels/808943947660394517/971079960255164477) to see the updated part for this section).
 
 #### Usage & Steps
-To begin, launch PowerShell as administrator and enter the following command to create a backup of your current Apps Panel—
+Click Windows Button and write "Windows Powershell" right-click, Run as Administrator  
+Enter the following command first:
+```powershell
+Stop-Process -Name "Adobe Desktop Service" -force
+```
+Enter the following command to create a backup of your current Apps Panel—
 
 ```powershell
 cp "C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll" "C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll.bak"
 ```
-After creating a backup with the above command, apply the Apps Panel patch by pasting the entirety of the following code block into PowerShell—
+After creating a backup with the above command, apply the Apps Panel patch by pasting the entirety of the following code block into PowerShell and press ENTER—
 
 ```powershell
 $bytes  = [System.IO.File]::ReadAllBytes("C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll")
-$bytes[1117100] = 0xfe
-$bytes[1216993] = 0xfe
-$bytes[1987809] = 0xfe
-$bytes[2149147] = 0xfe
-$bytes[2150572] = 0xfe
-$bytes[2151087] = 0xfe
-$bytes[2151887] = 0xfe
-$bytes[2278457] = 0xc6
-$bytes[2278458] = 0x40
-$bytes[2278467] = 0xc6
-$bytes[2278468] = 0x40
-$bytes[2278477] = 0xc6
-$bytes[2278478] = 0x40
+$bytes[1116554] = 0xfe
+$bytes[1216383] = 0xfe
+$bytes[1987439] = 0xfe
+$bytes[2150557] = 0xfe
+$bytes[2151982] = 0xfe
+$bytes[2152497] = 0xfe
+$bytes[2153297] = 0xfe
+$bytes[2279801] = 0xc6
+$bytes[2279802] = 0x40
+$bytes[2279811] = 0xc6
+$bytes[2279812] = 0x40
+$bytes[2279821] = 0xc6
+$bytes[2279822] = 0x40
 [System.IO.File]::WriteAllBytes("C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AppsPanel\AppsPanelBL.dll", $bytes)
 ```
-At this point, the patch is complete. The PowerShell window should resemble the following—
-
-![](https://media.discordapp.net/attachments/971079960255164477/1125990338176229386/PS.png)
 
 If the console prints no errors, restart your machine. Upon startup, Creative Cloud will be ready for use.
 
@@ -117,15 +123,13 @@ If the console prints no errors, restart your machine. Upon startup, Creative Cl
 If you receive an error stating that the file is being used by another process, then Creative Cloud is still partially running. Enter the following command to exit the running service—  
 
 ```powershell
-Stop-Process -Name "Adobe Desktop Service" -force
+
 ```
 Following that command, re-enter the same code block again—
 
-![](https://media.discordapp.net/attachments/971079960255164477/1125990412281184306/PS_ER.png)
-
 Restart your machine after entering the code block. Upon startup, Creative Cloud will be patched and ready for use.
 
-#### Backup & Restore
+#### To Restore AppsPannel
 To restore from the previously made backup, use the following command—
 
 ```powershell
@@ -196,7 +200,7 @@ Later you can disable, enable or delete them depending on your needs.
    * **Profile:** All
    * **Name:** (Choose a name that you will remember what it does)
 
-The ADS rule is what causes Creative Cloud to take longer to load, not load at all or constantly loop, but its necessary to get in the app without triggering the CreditCard popup.
+If you prefer to do this manually, you can add the following two lines to the system hosts file (located in `C:\Windows\System32\drivers\etc)` using a text editor of your choice:
 
 **Just remember that**
 
@@ -207,61 +211,76 @@ The ADS rule is what causes Creative Cloud to take longer to load, not load at a
 
 ===
 
-### 5. Install Apps you want (Trial and Error)
+### 5. Open Creative Cloud > Apps > Install
 
-   - If the buttons didn't get replaced with install, click on Try nonetheless and see if it starts downloading.  
+   - You should now have the install button, install all the apps you want, wait until everything is installed and DON'T OPEN ANY YET.
    
-   - Install all the apps you want in one go but don't open them yet. Wait until everything is installed, don't rush.
+   - Generative Fill / AI online features on PS or others DO NOT WORK ANYMORE - stop asking about it
+
+   - It's been adapted into the monthly credits for verified paying users (paywall). Therefore, its gone.
+
+   - Once that is done go `Menu > File > Exit Creative Cloud`
 
 ![](../static/genp-method/5-1.png)
 
 ### 6. Run GenP on the installed apps
    - Open `GenP folder > Resources > Run GenP file`
 
-   - If you're having issues opening it, turn AntiVirus OFF and try again, however **don't forget to turn it back ON before selecting Try or Download**.
+   - If you're having issues opening it, turn AntiVirus OFF and try again, however **don't forget to turn it back ON after its patched**.
 
    - Click **"Search Files"** and wait. *(will look at the default locations, use custom path if installed somewhere else)*
 
-   - You can de-select paths in case you have any versions you dont want to patch. (in case of using Monkrus Acrobat)
+   - You can de-select paths in case you have any programs you dont want to patch. (in case of using Monkrus Acrobat)
 
    - Finally click the **PILL** to run the patch.
 
-!!!warning
-OPEN THE APPS THROUGH THE .EXE and NOT FROM CC.
-!!!
+![](../static/genp-method/Guide2-14-min.png)
 
-![](../static/genp-method/6-1.png)
+   - Everything should be working now
+
+
+!!!warning
+OPEN THE APPS THROUGH THEIR .EXE and NOT FROM Creative Cloud.
+Meaning press Windows button, write name of app you wanna use that was patched > Open
+!!!
 
 ### 7. Block Adobe Genuine Service URL
 ***Thanks AbsentForeskin***  
 Use the following two commands in PowerShell (admin) if your apps are warning you of unlicensed or non-genuine usage.
 ```
-Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`t23ynjitwt5.adobe.io" -Force
+Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`tm59b4msyph.adobe.io" -Force
 ```
 ```
 Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "`n0.0.0.0`tic.adobe.io" -Force
 ```
 If you prefer to do this manually, you can add the following two lines to the system hosts file (located in `C:\Windows\System32\drivers\etc`) using a text editor of your choice—
 ```
-0.0.0.0 23ynjitwt5.adobe.io
+0.0.0.0 m59b4msyph.adobe.io
 0.0.0.0 ic.adobe.io
 ```
 
 **Everything should be working now**
 
-### 8. Optional - Block Each Installed app via Firewall  
-   *(Case of issues like app will be disabled, day counter, unable to launch app due to some popup)*
+### 8. Optional, therefore ignore - Block Each Installed app via Firewall  
+   *(In case of issues like app will be disabled, day counter, unable to launch app due to some popup)*
    - Go to `Windows Firewall > Advanced Settings`  
 
    - Create **Inbound and Outbound** rule on each app with issues  
-   **Typical path example would be:** `C:\Program Files\Adobe\Adobe Photoshop 2022\Photoshop.exe`  
-   Find the proper path for the one you need.  
+   **Structure is the following:**  
 
-### 9. Optional - Block AGS via Firewall - *(similar to step 4)*
+     - File Type: Program 
+     - Program: It's necessary to select the actual "program".exe inside the folder that was installed because the shortcut will not work.
+       - **Typical path example would be:** `C:\Program Files\Adobe\Adobe Photoshop 2023\Photoshop.exe` (Find the proper path for the app you need)  
+     - Action: Block Connection  
+     - Profile: All  
+     - Name: Name it whatever you want to know what's blocking.  
+
+### 9. Optional, therefore ignore - Block AGS via Firewall - *(similar to step 4)*
    -  Create both **Inbound** and **Outbound** rules on **Adobe Genuine Service**  
    Path of AGS - `C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AdobeGenuineClient\AGSService.exe`
 
 !!!
 Always check first the monthly **[Compatibility List][5]** before updating any apps, otherwise don't update.  
-If you want to install / update more apps, hit "**Install/Update**" on New app, let it download, and **run GenP** on them again.
+If you want to install / update more apps, hit "**Install/Update**" on New app, let it download, and **run GenP** on them again.  
+If something ain't working properly check **[Issues Fix][36]**  
 !!!

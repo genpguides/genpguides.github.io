@@ -54,6 +54,10 @@ If switching completely from CC+GenP to Monkrus, please run [full clean guide](.
 
 ## Instructions to Install Monkrus Individual / Collection:
 
+!!!warning
+If going with Monkrus, please USE ONLY THE **INDIVIDUAL VERSIONS** (these should be alright) and **NEVER the Collection version** (has been dropped due to several correlations with malware). - This has been said several times, but majority skips on the reading, so it's your problem going foward.
+!!!
+
 ### 1. Download and Install the [Torrent Software - Qbittorrent](https://www.qbittorrent.org/download.php)
 ### 2. Choose which one you want: Monkrus Collection OR Individual App of choice from the Download links 
   ⚠️ AntiVirus may have blacklisted the site causing it to not "load / could not reach url", if you disabled AV should load normally.
