@@ -22,7 +22,7 @@ You can suggest changes or corrections to the wiki [here](https://github.com/ica
 
 # Changelog
 
-16 Nov 2023 : Update text to match reddit
+16 Nov 2023 : Update text to match reddit  
 23 Sep 2023 : Update the Compatibility Suite Guide, update acropolis version, update adobe block urls, remove one adobe process block.
 17 Aug 2023 : Update Adobe Genuine Service URL  
 04 Aug 2023 : Update Adobe Genuine Service URL  
