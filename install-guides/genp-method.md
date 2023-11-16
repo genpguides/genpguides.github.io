@@ -154,64 +154,8 @@ If no errors are printed to the console, restart your machine. Upon startup, Cre
 ![](../static/genp-method/3-1.png)
 ===
 
-### 4. Use CCStopper to block ADS via Firewall (blocking internet)
-   - **Run CCstopper as admin.** - You should be shown a menu with the following options which you must hit using the keyboard.  
-   (2) for Internet Patch  
-   (1) for Firewall Block.  
 
-   Once that is done, you can select (Q) to quit CCStopper.
-
-![](../static/genp-method/4-1.png)
-![](../static/genp-method/4-2.png)
-
-!!!
-**PAY ATTENTION** - Firewall Rules should be in effect, therefore they won't let Creative Cloud load or Update *(this is intentional)*.  
-⚠️ If antivirus is managing firewall settings, then you must create them in your antivirus firewall settings instead and not on windows *(whichever it is must be ON for the rules to take effect)* .
-!!!
-
-   - 💡Turn `Windows Firewall OFF`, then open Creative Cloud and wait for it to load, once its loaded then turn `Windows Firewall ON`
-   - 🔁 **Repeat this process everytime you need to download other apps but get server error**  
-
-(If you do not care for the explanation of this, you may skip to step 5)
-
-==- ⚠️ Informational purpose only of step 4
-
-*Explanation of what CCstopper does automatically with the use of the firewall rule*
-
-Basically you are allowing internet access to Creative Cloud to load properly and blocking it again, by disabling and enabling the firewall rules.
-
-Later you can disable, enable or delete them depending on your needs.
-   * OUTBOUND: Stops information from leaving PC to the Server, helps bypass Credit Card prompt.
-   * INBOUND: Stops information coming from Server to PC, helps bypass the trial countdown or app will be disabled prompt.
-
-**How to add the same rules to firewall manually.**
-
-- Go to `Windows Firewall > Advanced Settings`
-- Create **Outbound** rules on the following:
-   **Path of ADS** - `C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\ADS\Adobe Desktop Service.exe`
-   **Path of Licensing** - `C:\ProgramFiles\Common Files\Adobe\Adobe Desktop Common\NGL\adobe_licensing_wf.exe`
-   **Path of Licensing helper** - `C:\ProgramFiles\Common Files\Adobe\Adobe Desktop Common\NGL\adobe_licensing_wf_helper.exe`
-
-**How to create it:**
-
-   * **Rule type:** Program
-   * **Program:** (Paste the directory above and select the application.exe)
-   * **Action:** Block the connection
-   * **Profile:** All
-   * **Name:** (Choose a name that you will remember what it does)
-
-If you prefer to do this manually, you can add the following two lines to the system hosts file (located in `C:\Windows\System32\drivers\etc)` using a text editor of your choice:
-
-**Just remember that**
-
-- Disabled: CreativeCloud works like normaly, but you cant download due to CreditCard popup.
-- Enabled: The opposite happens, free to download but its stubborn a bit.
-
-⚠️ **END of Informational purpose only of step 4**
-
-===
-
-### 5. Open Creative Cloud > Apps > Install
+### 4. Open Creative Cloud > Apps > Install
 
    - You should now have the install button, install all the apps you want, wait until everything is installed and DON'T OPEN ANY YET.
    
@@ -223,7 +167,7 @@ If you prefer to do this manually, you can add the following two lines to the sy
 
 ![](../static/genp-method/5-1.png)
 
-### 6. Run GenP on the installed apps
+### 5. Run GenP on the installed apps
    - Open `GenP folder > Resources > Run GenP file`
 
    - If you're having issues opening it, turn AntiVirus OFF and try again, however **don't forget to turn it back ON after its patched**.
@@ -244,7 +188,7 @@ OPEN THE APPS THROUGH THEIR .EXE and NOT FROM Creative Cloud.
 Meaning press Windows button, write name of app you wanna use that was patched > Open
 !!!
 
-### 7. Block Adobe Genuine Service URL
+### 6. Block Adobe Genuine Service URL
 ***Thanks AbsentForeskin***  
 Use the following two commands in PowerShell (admin) if your apps are warning you of unlicensed or non-genuine usage.
 ```
@@ -261,7 +205,7 @@ If you prefer to do this manually, you can add the following two lines to the sy
 
 **Everything should be working now**
 
-### 8. Optional, therefore ignore - Block Each Installed app via Firewall  
+### 7. Optional, therefore ignore - Block Each Installed app via Firewall  
    *(In case of issues like app will be disabled, day counter, unable to launch app due to some popup)*
    - Go to `Windows Firewall > Advanced Settings`  
 
@@ -275,7 +219,7 @@ If you prefer to do this manually, you can add the following two lines to the sy
      - Profile: All  
      - Name: Name it whatever you want to know what's blocking.  
 
-### 9. Optional, therefore ignore - Block AGS via Firewall - *(similar to step 4)*
+### 8. Optional, therefore ignore - Block AGS via Firewall - *(similar to step 4)*
    -  Create both **Inbound** and **Outbound** rules on **Adobe Genuine Service**  
    Path of AGS - `C:\Program Files (x86)\Common Files\Adobe\Adobe Desktop Common\AdobeGenuineClient\AGSService.exe`
 
